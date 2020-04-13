@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
 const url = require('url')
-const bleno = require('bleno')
 
 let window
 
@@ -22,14 +21,7 @@ function createWindow() {
   })
 
   window.loadURL(startUrl)
-  window.on('ready-to-show', () => {
-    var name = 'name';
-    var serviceUuids = ['fffffffffffffffffffffffffffffff0']
 
-    bleno.startAdvertising(name, serviceUuids, (error) => {
-      console.log(error)
-    })
-  })
   window.on('closed', () => {
     window = null
   })
